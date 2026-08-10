@@ -1,0 +1,36 @@
+             START
+               |
+               ↓
+      Enter flower measurements
+               |
+               ↓
+       Load training samples
+               |
+               ↓
+      Calculate distances
+               |
+               ↓
+      Find nearest 3 flowers
+               |
+               ↓
+       Count species votes
+               |
+               ↓
+       Select majority class
+               |
+               ↓
+       Display prediction
+               |
+               ↓
+              END
+              KNN Algorithm
+
+For a new flower, the program calculates the Euclidean distance between the new flower and every training flower.
+
+The formula is:
+
+Distance = √((x1-y1)² + (x2-y2)² + (x3-y3)² + (x4-y4)²)
+
+The program selects the closest K = 3 flowers.
+
+The species receiving the most votes becomes the prediction

@@ -1,0 +1,28 @@
+Open your terminal in the project folder.
+
+Compile:
+
+javac src/IrisClassification.java
+
+Run:
+
+java -cp src IrisClassification
+Sample Simulation
+====================================
+     IRIS FLOWER CLASSIFICATION
+====================================
+
+Input Flower Measurements:
+Sepal Length : 5.9
+Sepal Width  : 3.0
+Petal Length : 5.1
+Petal Width  : 1.8
+
+Algorithm : K-Nearest Neighbors
+K Value   : 3
+
+Predicted Species:
+>>> Iris Virginica
+
+Classification completed successfully!
+====================================

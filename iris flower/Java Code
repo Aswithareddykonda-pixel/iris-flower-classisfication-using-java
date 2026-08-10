@@ -1,0 +1,171 @@
+import java.util.*;
+
+public class IrisClassification {
+
+    // Represents one flower
+    static class Iris {
+        double sepalLength;
+        double sepalWidth;
+        double petalLength;
+        double petalWidth;
+        String species;
+
+        Iris(double sepalLength, double sepalWidth,
+             double petalLength, double petalWidth,
+             String species) {
+
+            this.sepalLength = sepalLength;
+            this.sepalWidth = sepalWidth;
+            this.petalLength = petalLength;
+            this.petalWidth = petalWidth;
+            this.species = species;
+        }
+    }
+
+    // Calculate Euclidean distance
+    static double distance(Iris a, Iris b) {
+
+        double d1 = a.sepalLength - b.sepalLength;
+        double d2 = a.sepalWidth - b.sepalWidth;
+        double d3 = a.petalLength - b.petalLength;
+        double d4 = a.petalWidth - b.petalWidth;
+
+        return Math.sqrt(
+                d1 * d1 +
+                d2 * d2 +
+                d3 * d3 +
+                d4 * d4
+        );
+    }
+
+    // KNN prediction
+    static String predict(List<Iris> trainingData,
+                          Iris testFlower,
+                          int k) {
+
+        List<Iris> sorted = new ArrayList<>(trainingData);
+
+        sorted.sort(
+                Comparator.comparingDouble(
+                        flower -> distance(flower, testFlower)
+                )
+        );
+
+        Map<String, Integer> votes = new HashMap<>();
+
+        for (int i = 0; i < k; i++) {
+
+            String species = sorted.get(i).species;
+
+            votes.put(
+                    species,
+                    votes.getOrDefault(species, 0) + 1
+            );
+        }
+
+        String prediction = "";
+        int maxVotes = 0;
+
+        for (Map.Entry<String, Integer> entry : votes.entrySet()) {
+
+            if (entry.getValue() > maxVotes) {
+                maxVotes = entry.getValue();
+                prediction = entry.getKey();
+            }
+        }
+
+        return prediction;
+    }
+
+    public static void main(String[] args) {
+
+        // Training dataset
+        List<Iris> trainingData = new ArrayList<>();
+
+        // Iris Setosa samples
+        trainingData.add(
+                new Iris(5.1, 3.5, 1.4, 0.2, "Iris Setosa")
+        );
+
+        trainingData.add(
+                new Iris(4.9, 3.0, 1.4, 0.2, "Iris Setosa")
+        );
+
+        trainingData.add(
+                new Iris(4.7, 3.2, 1.3, 0.2, "Iris Setosa")
+        );
+
+        trainingData.add(
+                new Iris(5.0, 3.6, 1.4, 0.2, "Iris Setosa")
+        );
+
+        // Iris Versicolor samples
+        trainingData.add(
+                new Iris(7.0, 3.2, 4.7, 1.4, "Iris Versicolor")
+        );
+
+        trainingData.add(
+                new Iris(6.4, 3.2, 4.5, 1.5, "Iris Versicolor")
+        );
+
+        trainingData.add(
+                new Iris(6.9, 3.1, 4.9, 1.5, "Iris Versicolor")
+        );
+
+        trainingData.add(
+                new Iris(5.5, 2.3, 4.0, 1.3, "Iris Versicolor")
+        );
+
+        // Iris Virginica samples
+        trainingData.add(
+                new Iris(6.3, 3.3, 6.0, 2.5, "Iris Virginica")
+        );
+
+        trainingData.add(
+                new Iris(5.8, 2.7, 5.1, 1.9, "Iris Virginica")
+        );
+
+        trainingData.add(
+                new Iris(7.1, 3.0, 5.9, 2.1, "Iris Virginica")
+        );
+
+        trainingData.add(
+                new Iris(6.5, 3.0, 5.8, 2.2, "Iris Virginica")
+        );
+
+        // New flower to classify
+        Iris testFlower =
+                new Iris(5.9, 3.0, 5.1, 1.8, "Unknown");
+
+        int k = 3;
+
+        String prediction =
+                predict(trainingData, testFlower, k);
+
+        System.out.println("====================================");
+        System.out.println("     IRIS FLOWER CLASSIFICATION");
+        System.out.println("====================================");
+
+        System.out.println();
+
+        System.out.println("Input Flower Measurements:");
+        System.out.println("Sepal Length : " + testFlower.sepalLength);
+        System.out.println("Sepal Width  : " + testFlower.sepalWidth);
+        System.out.println("Petal Length : " + testFlower.petalLength);
+        System.out.println("Petal Width  : " + testFlower.petalWidth);
+
+        System.out.println();
+
+        System.out.println("Algorithm : K-Nearest Neighbors");
+        System.out.println("K Value   : " + k);
+
+        System.out.println();
+
+        System.out.println("Predicted Species:");
+        System.out.println(">>> " + prediction);
+
+        System.out.println();
+        System.out.println("Classification completed successfully!");
+        System.out.println("====================================");
+    }
+}

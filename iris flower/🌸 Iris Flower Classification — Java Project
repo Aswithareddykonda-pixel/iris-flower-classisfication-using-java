@@ -1,0 +1,16 @@
+1. Project Overview
+
+The Iris Flower Classification System is a machine-learning application that classifies an iris flower into one of three species based on its flower measurements:
+
+Iris Setosa
+Iris Versicolor
+Iris Virginica
+
+The system uses four input features:
+
+Sepal Length
+Sepal Width
+Petal Length
+Petal Width
+
+The Java program uses the K-Nearest Neighbors (KNN) algorithm to compare a new flower with known training samples and predict its species.

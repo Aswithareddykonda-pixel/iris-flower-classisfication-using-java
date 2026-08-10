@@ -1,0 +1,55 @@
+1. Full Iris Dataset
+
+Use all 150 Iris samples instead of only a few manually entered samples.
+
+2. CSV Dataset
+
+Load the dataset automatically from:
+
+data/iris.csv
+3. Accuracy Calculation
+
+Split the dataset into:
+
+80% → Training
+20% → Testing
+
+Then calculate:
+
+Accuracy = Correct Predictions / Total Predictions × 100
+4. GUI
+
+Create a Java Swing or JavaFX interface:
+
++----------------------------------+
+|     IRIS FLOWER CLASSIFIER       |
++----------------------------------+
+| Sepal Length: [ 5.9 ]            |
+| Sepal Width : [ 3.0 ]            |
+| Petal Length: [ 5.1 ]            |
+| Petal Width : [ 1.8 ]            |
+|                                  |
+|       [ CLASSIFY FLOWER ]        |
+|                                  |
+| Prediction: Iris Virginica       |
++----------------------------------+
+5. Multiple Algorithms
+
+Compare:
+
+KNN
+Decision Tree
+Naive Bayes
+Logistic Regression
+Random Forest
+6. Data Visualization
+
+Add graphs showing:
+
+Sepal length vs width
+Petal length vs width
+Species distribution
+Classification accuracy
+7. Web Application
+
+The Java model can eventually be connected to a frontend to create an online flower-classification application.

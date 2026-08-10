@@ -1,0 +1,19 @@
+The Iris Flower Classification System successfully classifies a flower into one of the following categories:
+
+                  Iris Flower
+                       |
+          +------------+------------+
+          |            |            |
+          ↓            ↓            ↓
+      Setosa      Versicolor    Virginica
+
+For the sample input:
+
+Sepal Length = 5.9
+Sepal Width  = 3.0
+Petal Length = 5.1
+Petal Width  = 1.8
+
+The predicted result is:
+
+Iris Virginica

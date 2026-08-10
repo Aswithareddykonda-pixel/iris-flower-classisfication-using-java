@@ -1,0 +1,7 @@
+Uses a small training dataset
+Uses manually entered data
+No graphical user interface
+No automatic dataset loading
+KNN can become slower with very large datasets
+Input data is not normalized
+Accuracy cannot be properly evaluated from only a few samples
